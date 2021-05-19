@@ -1,0 +1,8 @@
+CONTENT: NONE
+RESTRICTION: == net48
+NUGET
+  remote: http://artrepo.daptiv.com/artifactory/api/nuget/nuget-virtual
+    FluentAssertions (3.2.1)
+    log4net (2.0.8)
+    NuGet.CommandLine (5.9.1)
+    NUnit (3.12.0)

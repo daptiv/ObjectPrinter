@@ -1,0 +1,9 @@
+framework: net48
+content: none
+
+source http://artrepo.daptiv.com/artifactory/api/nuget/nuget-virtual
+
+nuget NuGet.CommandLine
+nuget FluentAssertions 3.2.1
+nuget log4net 2.0.8
+nuget NUnit 3.12.0

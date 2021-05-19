@@ -1,18 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{DBBA193A-C923-45CD-BA94-85CB6D14B856}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectPrinter", "ObjectPrinter\ObjectPrinter.csproj", "{17FAE841-474C-4B3B-89A1-13BC44364171}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectPrinter.Specs", "ObjectPrinter.Specs\ObjectPrinter.Specs.csproj", "{F7C71361-C26C-40AA-AF7E-F39740759553}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9DF323F2-E40E-4F6D-8F0A-DDBEE75D14A5}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectPrinter.Log4Net.v1212", "ObjectPrinter.Log4Net.v1212\ObjectPrinter.Log4Net.v1212.csproj", "{38524B70-3D84-4E81-961D-1F287F0E9605}"
 EndProject
@@ -61,5 +60,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B82F4862-DDD5-487E-84AB-39C73ADE5A07}
 	EndGlobalSection
 EndGlobal
