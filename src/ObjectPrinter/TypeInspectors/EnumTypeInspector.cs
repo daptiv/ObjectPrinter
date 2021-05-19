@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ObjectPrinter.Utilties;
+using ObjectPrinter.Utilities;
 
 namespace ObjectPrinter.TypeInspectors
 {
@@ -9,32 +9,32 @@ namespace ObjectPrinter.TypeInspectors
 	public class EnumTypeInspector : ITypeInspector
     {
         ///<summary></summary>
-		public bool ShouldInspect(object objectToInspect, Type typeOfObjectToInspect)
-		{
-			return typeof(Enum).IsAssignableFrom(typeOfObjectToInspect);
-		}
+        public bool ShouldInspect(object objectToInspect, Type typeOfObjectToInspect)
+        {
+            return typeof(Enum).IsAssignableFrom(typeOfObjectToInspect);
+        }
 
         ///<summary></summary>
-		public IEnumerable<ObjectInfo> GetMemberList(object objectToInspect, Type typeOfObjectToInspect)
-		{
-			var objAsEnum = (Enum)objectToInspect;
-			string enumValues;
+        public IEnumerable<ObjectInfo> GetMemberList(object objectToInspect, Type typeOfObjectToInspect)
+        {
+            var objAsEnum = (Enum)objectToInspect;
+            string enumValues;
 
-			var isFlagEnum = !typeOfObjectToInspect.GetCustomAttributes(typeof (FlagsAttribute), false).IsNullOrEmpty();
-			if(isFlagEnum)
-			{
-				var allValues = Enum.GetValues(typeOfObjectToInspect);
-				enumValues = allValues.Cast<Enum>().Where(objAsEnum.HasFlag).JoinToString(" | ");
-			}
-			else
-			{
-				enumValues = objectToInspect.ToString();
-			}
+            var isFlagEnum = !typeOfObjectToInspect.GetCustomAttributes(typeof(FlagsAttribute), false).IsNullOrEmpty();
+            if (isFlagEnum)
+            {
+                var allValues = Enum.GetValues(typeOfObjectToInspect);
+                enumValues = allValues.Cast<Enum>().Where(objAsEnum.HasFlag).JoinToString(" | ");
+            }
+            else
+            {
+                enumValues = objectToInspect.ToString();
+            }
 
-			return new List<ObjectInfo>
-			       	{
-			       		new ObjectInfo(typeOfObjectToInspect.Name + "." + enumValues)
-			       	};
-		}
-	}
+            return new List<ObjectInfo>
+                       {
+                           new ObjectInfo(typeOfObjectToInspect.Name + "." + enumValues)
+                       };
+        }
+    }
 }

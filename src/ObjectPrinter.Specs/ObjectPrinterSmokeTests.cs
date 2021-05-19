@@ -231,7 +231,7 @@ namespace ObjectPrinter.Specs
 	SomeEnumMember : SomeEnum.Enum22
 }";
 
-            ShouldBeSame(expected, build_general_use_case_including_recursion());
+            ShouldBeSame(expected, Build_general_use_case_including_recursion());
         }
 
         [Test]
@@ -368,7 +368,7 @@ namespace ObjectPrinter.Specs
 	}
 	SomeEnumMember : SomeEnum.Enum22
 }";
-            ShouldBeSame(expected, build_general_use_case_including_recursion());
+            ShouldBeSame(expected, Build_general_use_case_including_recursion());
         }
 
         private static ObjectPrintable Build_general_use_case_including_recursion()

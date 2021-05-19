@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using FluentAssertions;
 using NUnit.Framework;
-using ObjectPrinter.Utilties;
+using ObjectPrinter.Utilities;
 
 namespace ObjectPrinter.Specs
 {

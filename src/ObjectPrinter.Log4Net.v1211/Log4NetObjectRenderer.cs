@@ -1,5 +1,5 @@
 using System.IO;
-using ObjectPrinter.Utilties;
+using ObjectPrinter.Utilities;
 using log4net.ObjectRenderer;
 
 namespace ObjectPrinter.Log4Net

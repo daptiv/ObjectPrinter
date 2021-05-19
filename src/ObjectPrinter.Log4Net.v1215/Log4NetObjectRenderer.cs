@@ -1,5 +1,5 @@
 using System.IO;
-using ObjectPrinter.Utilties;
+using ObjectPrinter.Utilities;
 using log4net.ObjectRenderer;
 
 namespace ObjectPrinter.Log4Net
@@ -7,7 +7,7 @@ namespace ObjectPrinter.Log4Net
     /// <summary>
     /// class used by log4net to render objects
     /// </summary>
-	public class Log4NetObjectRenderer : IObjectRenderer
+    public class Log4NetObjectRenderer : IObjectRenderer
     {
         /// <summary></summary>
         public void RenderObject(RendererMap rendererMap, object obj, TextWriter writer)

@@ -9,14 +9,14 @@ namespace ObjectPrinter
     /// Configs that can be overridden for a specific Dump by the ObjectPrinter
     /// </summary>
     public class ObjectPrinterConfig : IObjectPrinterConfig
-	{
-	    private IEnumerable<ITypeInspector> _inspectors;
+    {
+        private IEnumerable<ITypeInspector> _inspectors;
 
-	    ///<summary>
-	    /// The string to use as a tab.  
-	    /// Use html characters if outputting to html without the 'pre' element.
+        ///<summary>
+        /// The string to use as a tab.  
+        /// Use html characters if outputting to html without the 'pre' element.
         /// If not specified, Config.Printer.Tab (\t) is used.
-	    ///</summary>
+        ///</summary>
         public string Tab { get; set; }
 
         ///<summary>
@@ -24,7 +24,7 @@ namespace ObjectPrinter
         /// Use html characters if outputting to html without the 'pre' element.
         /// If not specified, Config.Printer.NewLine (\n) is used.
         ///</summary>
-		public string NewLine { get; set; }
+        public string NewLine { get; set; }
 
         ///<summary>
         /// The maximum depth of recursions into the object graph.
@@ -61,27 +61,27 @@ namespace ObjectPrinter
         }
 
         /// <summary>
-        /// instatiates new instace of ObjectPrinterConfig using defaults from Config.Printer
+        /// instantiates new instance of ObjectPrinterConfig using defaults from Config.Printer
         /// </summary>
         public ObjectPrinterConfig()
-		{
-			Tab = Config.Printer.Tab;
+        {
+            Tab = Config.Printer.Tab;
             NewLine = Config.Printer.NewLine;
             MaxDepth = Config.Printer.MaxDepth;
             IncludeLogging = Config.Printer.IncludeLogging;
             EnableExceptionCaching = Config.Printer.EnableExceptionCaching;
-		}
+        }
 
 
         /// <summary>
         /// Returns the first ITypeInspector from Inspectors where ShouldInspect returns true.
         /// If none return true, the CatchAllTypeInspector is used
         /// </summary>
-		public ITypeInspector GetInspector(object objectToInspect, Type typeOfObjectToInspect)
-		{
-			return Inspectors
-			       	.FirstOrDefault(inspector => inspector.ShouldInspect(objectToInspect, typeOfObjectToInspect))
-			       ?? Config.Inspectors.CatchAllTypeInspector;
-		}
-	}
+        public ITypeInspector GetInspector(object objectToInspect, Type typeOfObjectToInspect)
+        {
+            return Inspectors
+                       .FirstOrDefault(inspector => inspector.ShouldInspect(objectToInspect, typeOfObjectToInspect))
+                   ?? Config.Inspectors.CatchAllTypeInspector;
+        }
+    }
 }

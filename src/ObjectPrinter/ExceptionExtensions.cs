@@ -1,13 +1,13 @@
 using System;
-using ObjectPrinter.Utilties;
+using ObjectPrinter.Utilities;
 
 namespace ObjectPrinter
 {
-	/// <summary>
-	/// Extensions for exceptions
-	/// </summary>
-	public static class ExceptionExtensions
-	{
+    /// <summary>
+    /// Extensions for exceptions
+    /// </summary>
+    public static class ExceptionExtensions
+    {
         /// <summary>
         /// Adds context in the form of objects to the Data property of an exception.
         /// This context will be printed with the exception.
@@ -20,12 +20,13 @@ namespace ObjectPrinter
         /// to string and added to the exception before serialization.  default=true
         /// </param>
 	    public static void SetContext(this Exception e, string name, object context, bool ifNotSerializablePrintOnSerialize = true)
-		{
-			if (context != null && !context.GetType().IsSerializable)
-			{
-				context = new NonSerializableWrapper {Context = context, PrintOnSerialize = ifNotSerializablePrintOnSerialize};
-			}
-			e.Data[name] = context;
-		}
-	}
+        {
+            if (context != null && !context.GetType().IsSerializable)
+            {
+                context = new NonSerializableWrapper { Context = context, PrintOnSerialize = ifNotSerializablePrintOnSerialize };
+            }
+
+            e.Data[name] = context;
+        }
+    }
 }

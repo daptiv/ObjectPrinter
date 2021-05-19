@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ObjectPrinter.Utilties;
+using ObjectPrinter.Utilities;
 
 namespace ObjectPrinter.Printers
 {
@@ -11,8 +11,16 @@ namespace ObjectPrinter.Printers
 
         public ObjectInfosPrinter(IndentableTextWriter output, Action<ObjectInfo> write)
         {
-            if (output == null) throw new ArgumentNullException("output");
-            if (write == null) throw new ArgumentNullException("write");
+            if (output == null)
+            {
+                throw new ArgumentNullException(nameof(output));
+            }
+
+            if (write == null)
+            {
+                throw new ArgumentNullException(nameof(write));
+            }
+
             _output = output;
             _write = write;
         }

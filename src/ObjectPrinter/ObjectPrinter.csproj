@@ -54,14 +54,14 @@
     <Compile Include="TypeInspectors\EnumerableTypeInspector.cs" />
     <Compile Include="TypeInspectors\NameValueCollectionTypeInspector.cs" />
     <Compile Include="TypeInspectors\XmlNodeTypeInspector.cs" />
-    <Compile Include="Utilties\LazyString.cs" />
-    <Compile Include="Utilties\MemberCacheFactory.cs" />
-    <Compile Include="Utilties\NonSerializableWrapper.cs" />
+    <Compile Include="Utilities\LazyString.cs" />
+    <Compile Include="Utilities\MemberCacheFactory.cs" />
+    <Compile Include="Utilities\NonSerializableWrapper.cs" />
     <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Printers\ObjectInfosPrinter.cs" />
-    <Compile Include="Utilties\BigAlMemberCache.cs" />
+    <Compile Include="Utilities\BigAlMemberCache.cs" />
     <Compile Include="TypeInspectors\Funcs.cs" />
-    <Compile Include="Utilties\IMemberCache.cs" />
+    <Compile Include="Utilities\IMemberCache.cs" />
     <Compile Include="TypeInspectors\ITypeInspector.cs" />
     <Compile Include="ObjectInfo.cs" />
     <Compile Include="Printers\ObjectPrinter.cs" />
@@ -70,12 +70,12 @@
     <Compile Include="TypeInspectors\InspectAllTypeInspector.cs" />
     <Compile Include="TypeInspectors\EnumTypeInspector.cs" />
     <Compile Include="TypeInspectors\ExceptionTypeInspector.cs" />
-    <Compile Include="Utilties\MemberCache.cs" />
+    <Compile Include="Utilities\MemberCache.cs" />
     <Compile Include="TypeInspectors\ToStringTypeInspector.cs" />
     <Compile Include="TypeInspectors\TypeInspectorExtensions.cs" />
-    <Compile Include="Utilties\EnumerableExtensions.cs" />
-    <Compile Include="Utilties\IndentableTextWriter.cs" />
-    <Compile Include="Utilties\StringExtensions.cs" />
+    <Compile Include="Utilities\EnumerableExtensions.cs" />
+    <Compile Include="Utilities\IndentableTextWriter.cs" />
+    <Compile Include="Utilities\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ObjectPrinter.nuspec" />

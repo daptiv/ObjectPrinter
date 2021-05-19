@@ -2,7 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Reflection;
 
-namespace ObjectPrinter.Utilties
+namespace ObjectPrinter.Utilities
 {
     internal class MemberCacheFactory
     {

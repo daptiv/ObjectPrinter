@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using ObjectPrinter.TypeInspectors;
-using ObjectPrinter.Utilties;
+using ObjectPrinter.Utilities;
 
 namespace ObjectPrinter
 {
@@ -54,7 +54,11 @@ namespace ObjectPrinter
                 get { return _userProvidedRegistration ?? DefaultRegistration; }
                 set
                 {
-                    if (value == null) throw new ArgumentNullException("value");
+                    if (value == null)
+                    {
+                        throw new ArgumentNullException(nameof(value));
+                    }
+
                     _userProvidedRegistration = value;
                     ReloadInspectors();
                 }

@@ -3,10 +3,10 @@ using ObjectPrinter.TypeInspectors;
 
 namespace ObjectPrinter
 {
-	/// <summary>
-	/// Defines the config used during an ObjectPrinter.Dump
-	/// </summary>
-	public interface IObjectPrinterConfig
+    /// <summary>
+    /// Defines the config used during an ObjectPrinter.Dump
+    /// </summary>
+    public interface IObjectPrinterConfig
     {
         ///<summary>
         /// The string to use as a tab.  
@@ -33,20 +33,20 @@ namespace ObjectPrinter
         /// When true, the inspector used for an object is specified in the output.
         /// If not specified, DefaultIncludeLogging (false) is used.
         ///</summary>
-		bool IncludeLogging { get; }
+        bool IncludeLogging { get; }
 
-	    /// <summary>
-	    /// When true an exception is being dumped to string, 
-	    /// the output will be cached in the Data property of the exception.
-	    /// For short lived exceptions with a lot of context, this can save considerable time.
-	    /// For long lived exceptions, it may be preferable to not take up the memory.
-	    /// For exceptions with little context, it may be cheap enough to dump again.
-	    /// </summary>
-	    bool EnableExceptionCaching { get; set; }
+        /// <summary>
+        /// When true an exception is being dumped to string, 
+        /// the output will be cached in the Data property of the exception.
+        /// For short lived exceptions with a lot of context, this can save considerable time.
+        /// For long lived exceptions, it may be preferable to not take up the memory.
+        /// For exceptions with little context, it may be cheap enough to dump again.
+        /// </summary>
+        bool EnableExceptionCaching { get; set; }
 
         /// <summary>
         /// Returns an ITypeInspector for the given object
         /// </summary>
-	    ITypeInspector GetInspector(object objectToInspect, Type typeOfObjectToInspect);
-	}
+        ITypeInspector GetInspector(object objectToInspect, Type typeOfObjectToInspect);
+    }
 }

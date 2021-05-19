@@ -67,7 +67,10 @@ namespace ObjectPrinter
         /// <summary>Inspectors to be used run before the CatchAll inspector</summary>
         public TypeInspectorsRegistration RegisterInspectors(params ITypeInspector[] inspectors)
         {
-            if (inspectors == null) throw new ArgumentNullException("inspectors");
+            if (inspectors == null)
+            {
+                throw new ArgumentNullException(nameof(inspectors));
+            }
             _inspectors.AddRange(inspectors);
             return this;
         }
@@ -75,12 +78,15 @@ namespace ObjectPrinter
         /// <summary>Inspectors to be used run before the CatchAll inspector</summary>
         public TypeInspectorsRegistration RegisterInspector(ITypeInspector inspector)
         {
-            if (inspector == null) throw new ArgumentNullException("inspector");
+            if (inspector == null)
+            {
+                throw new ArgumentNullException(nameof(inspector));
+            }
             _inspectors.Add(inspector);
             return this;
         }
 
-        internal IEnumerable<ITypeInspector> GetRegisteredInspectors()
+        public IEnumerable<ITypeInspector> GetRegisteredInspectors()
         {
             yield return _enumTypeInspector ?? DefaultEnumTypeInspector;
             yield return _exceptionTypeInspector ?? DefaultExceptionTypeInspector;

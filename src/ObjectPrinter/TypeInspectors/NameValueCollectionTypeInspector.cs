@@ -33,6 +33,7 @@ namespace ObjectPrinter.TypeInspectors
             {
                 yield return new ObjectInfo("Count", nvc.Count);
             }
+
             for (int i = 0; i < nvc.Count; i++)
             {
                 yield return new ObjectInfo(nvc.Keys[i], nvc[i]);
