@@ -1,3 +1,4 @@
 FluentAssertions
 log4net
 NUnit
+NUnitTestAdapter.WithFramework
