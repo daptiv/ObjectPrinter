@@ -36,7 +36,11 @@ namespace ObjectPrinter
                 get { return _catchAllTypeInspector; }
                 set
                 {
-                    if (value == null) throw new ArgumentNullException("value");
+                    if (value == null)
+                    {
+                        throw new ArgumentNullException(nameof(value));
+                    }
+
                     _catchAllTypeInspector = value;
                     ReloadInspectors();
                 }

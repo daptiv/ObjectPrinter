@@ -24,8 +24,8 @@ namespace ObjectPrinter.Specs
         public void IncludeTypes()
         {
             var someObj = new TestAttribute();
-            Funcs.IncludeTypes(false, typeof(Object))(someObj, someObj.GetType()).Should().BeFalse();
-            Funcs.IncludeTypes(true, typeof(Object))(someObj, someObj.GetType()).Should().BeTrue();
+            Funcs.IncludeTypes(false, typeof(object))(someObj, someObj.GetType()).Should().BeFalse();
+            Funcs.IncludeTypes(true, typeof(object))(someObj, someObj.GetType()).Should().BeTrue();
         }
 	}
 }

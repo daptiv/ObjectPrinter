@@ -13,7 +13,7 @@ using NUnit.Framework;
 namespace ObjectPrinter.Specs
 {
     [TestFixture]
-	public class ObjectPrinterSmokeTests
+    public class ObjectPrinterSmokeTests
     {
         [TearDown]
         public void Teardown()
@@ -21,25 +21,24 @@ namespace ObjectPrinter.Specs
             Config.Inspectors.IncludeCountsForCollections = false;
         }
 
-	    [Test]
-	    public void SmokeTest_XmlNode_should_return_inner_text()
+        [Test]
+        public void SmokeTest_XmlNode_should_return_inner_text()
         {
             var xml = "<bus:exception xmlns:bus=\"http://developer.cognos.com/schemas/bibus/3/\"><severity>error</severity><errorCode>cmBadProp</errorCode><bus:message><messageString>CM-REQ-4010 The property \"mobileDeviceID\" is unknown. Remove it or replace it with a valid property.</messageString></bus:message></bus:exception>";
-	        var doc = new XmlDocument();
-	        doc.LoadXml(xml);
-	        var output = doc.DumpToString();
-	        output.Should().Be(xml);
-	    }
+            var doc = new XmlDocument();
+            doc.LoadXml(xml);
+            var output = doc.DumpToString();
+            output.Should().Be(xml);
+        }
 
-	    [Test]
-		public void SmokeTest_XNode_should_return_inner_text()
-		{
+        [Test]
+        public void SmokeTest_XNode_should_return_inner_text()
+        {
             var xml = "<bus:exception xmlns:bus=\"http://developer.cognos.com/schemas/bibus/3/\">\r\n  <severity>error</severity>\r\n  <errorCode>cmBadProp</errorCode>\r\n  <bus:message>\r\n    <messageString>CM-REQ-4010 The property \"mobileDeviceID\" is unknown. Remove it or replace it with a valid property.</messageString>\r\n  </bus:message>\r\n</bus:exception>";
-			var doc = XElement.Load(new StringReader(xml));
-			var output = doc.DumpToString();
-			output.Should().Be(xml);
-		    //Console.Out.WriteLine(output);
-		}
+            var doc = XElement.Load(new StringReader(xml));
+            var output = doc.DumpToString();
+            output.Should().Be(xml);
+        }
 
         [Test]
         public void SmokeTest_empty_collections()
@@ -58,7 +57,7 @@ namespace ObjectPrinter.Specs
                 Id = 33
             };
 
-            var parent = new ObjectPrintable("Whos your daddy?")
+            var parent = new ObjectPrintable("This is the Parent")
             {
                 String = "Parent",
                 Id = 100,
@@ -74,7 +73,7 @@ namespace ObjectPrinter.Specs
 
             var expected = @"[ObjectPrintable]: hashcode { $ignore$ }
 {
-	ToString() : Whos your daddy?
+	ToString() : This is the Parent
 	String : Parent
 	Id : 100
 	Uri : {NULL}
@@ -99,15 +98,15 @@ namespace ObjectPrinter.Specs
 	SomeEnumMember : SomeEnum.Enum22
 }";
 
-            shouldBeSame(expected, parent);
+            ShouldBeSame(expected, parent);
         }
 
         [Test]
-		public void SmokeTest_general_use_case_including_recursion()
+        public void SmokeTest_general_use_case_including_recursion()
         {
             string expected = @"[ObjectPrintable]: hashcode { $ignore$ }
 {
-	ToString() : Whos your daddy?
+	ToString() : This is the Parent
 	String : Parent
 	Id : 100
 	Uri : {NULL}
@@ -232,7 +231,7 @@ namespace ObjectPrinter.Specs
 	SomeEnumMember : SomeEnum.Enum22
 }";
 
-            shouldBeSame(expected, build_general_use_case_including_recursion());
+            ShouldBeSame(expected, build_general_use_case_including_recursion());
         }
 
         [Test]
@@ -241,7 +240,7 @@ namespace ObjectPrinter.Specs
             Config.Inspectors.IncludeCountsForCollections = true;
             string expected = @"[ObjectPrintable]: hashcode { $ignore$ }
 {
-	ToString() : Whos your daddy?
+	ToString() : This is the Parent
 	String : Parent
 	Id : 100
 	Uri : {NULL}
@@ -369,47 +368,47 @@ namespace ObjectPrinter.Specs
 	}
 	SomeEnumMember : SomeEnum.Enum22
 }";
-            shouldBeSame(expected, build_general_use_case_including_recursion());
+            ShouldBeSame(expected, build_general_use_case_including_recursion());
         }
 
-        private static ObjectPrintable build_general_use_case_including_recursion()
+        private static ObjectPrintable Build_general_use_case_including_recursion()
         {
             var stringWithReturns = "this is\r\na string\n\twith tabs\nand returns";
             var boringString = "i'm a bore";
 
             var child1 = new ObjectPrintable
-                {
-                    String = boringString,
-                    Id = 17,
-                };
+            {
+                String = boringString,
+                Id = 17,
+            };
             var child2 = new ObjectPrintable
-                {
-                    String = stringWithReturns,
-                    Id = 33
-                };
+            {
+                String = stringWithReturns,
+                Id = 33
+            };
 
-            var parent = new ObjectPrintable("Whos your daddy?")
-                {
-                    String = "Parent",
-                    Id = 100,
-                    Child = child1,
-                    Array = new[] {child1, child2},
-                    Dictionary = new Dictionary<int, ObjectPrintable>
+            var parent = new ObjectPrintable("This is the Parent")
+            {
+                String = "Parent",
+                Id = 100,
+                Child = child1,
+                Array = new[] { child1, child2 },
+                Dictionary = new Dictionary<int, ObjectPrintable>
                         {
                             {child1.Id, child1},
                             {child2.Id, child2}
                         },
-                    Hashtable = new Hashtable
+                Hashtable = new Hashtable
                         {
                             {child1.Id, child1},
                             {child2.Id, child2}
                         },
-                    NVC = new NameValueCollection
+                NVC = new NameValueCollection
                         {
                             {"stringWithReturns", stringWithReturns},
                             {"boringString", boringString}
                         }
-                };
+            };
 
             child1.Parent = parent;
             child2.Parent = parent;
@@ -417,31 +416,31 @@ namespace ObjectPrinter.Specs
         }
 
         [Test]
-		public void ObjectPrinter_includes_public_fields_in_output()
-		{
-			var testObject = new ObjectWithPublicFields
-								{
-									Id = 100,
-									TestInteger = 25,
-									TestString = "This is a test"
-								};
+        public void ObjectPrinter_includes_public_fields_in_output()
+        {
+            var testObject = new ObjectWithPublicFields
+            {
+                Id = 100,
+                TestInteger = 25,
+                TestString = "This is a test"
+            };
 
-			var printedTestObject = testObject.DumpToString();
-			printedTestObject.Should().Be(
-				@"[ObjectWithPublicFields]: hashcode { 100 }
+            var printedTestObject = testObject.DumpToString();
+            printedTestObject.Should().Be(
+                @"[ObjectWithPublicFields]: hashcode { 100 }
 {
 	Id : 100
 	TestInteger : 25
 	TestString : This is a test
 }");
-		}
+        }
 
         [Test]
-        public void given_NonSerializableWrapper_only_context_is_printed()
+        public void Given_NonSerializableWrapper_only_context_is_printed()
         {
             var ex = new Exception("some ex");
             ex.SetContext("addl message", "some addl message");
-            ex.SetContext("non-serializable-obj", new ObjectWithPublicFields{Id = 5, TestInteger = 10, TestString = "string"});
+            ex.SetContext("non-serializable-obj", new ObjectWithPublicFields { Id = 5, TestInteger = 10, TestString = "string" });
 
             var expected = @"[Exception]: hashcode { $ignore$ }
 {
@@ -464,10 +463,10 @@ namespace ObjectPrinter.Specs
 	InnerException : {NULL}
 }";
 
-            shouldBeSame(expected, ex);
+            ShouldBeSame(expected, ex);
         }
 
-        private static void shouldBeSame(string expected, object objectToPrint)
+        private static void ShouldBeSame(string expected, object objectToPrint)
         {
             var sb = new StringBuilder();
             try
@@ -488,7 +487,6 @@ namespace ObjectPrinter.Specs
             //expected = expected.Replace(Environment.NewLine, "_n").Replace("\t", "_t");
             //actual = actual.Replace(Environment.NewLine, "_n").Replace("\t", "_t");
 
-            //Console.Out.WriteLine("lengths: expected={0} actual={1}", expected.Length, actual.Length);
             Console.Out.WriteLine("EXPECTED:");
             Console.Out.WriteLine(expected);
             Console.Out.WriteLine("ACTUAL:");
@@ -497,15 +495,15 @@ namespace ObjectPrinter.Specs
             actual.Should().Be(expected);
         }
 
-		public class ObjectPrintable
-		{
-            public enum SomeEnum{Enum1,Enum22,Enum333};
+        public class ObjectPrintable
+        {
+            public enum SomeEnum { Enum1, Enum22, Enum333 };
 
-			private readonly string _customToString;
-			public string String { get; set; }
-			public int Id { get; set; }
+            private readonly string _customToString;
+            public string String { get; set; }
+            public int Id { get; set; }
             public Uri Uri { get; set; }
-			public ObjectPrintable Child { get; set; }
+            public ObjectPrintable Child { get; set; }
             public ObjectPrintable Parent { get; set; }
             public ObjectPrintable[] Array { get; set; }
             public Dictionary<int, ObjectPrintable> Dictionary { get; set; }
@@ -518,39 +516,39 @@ namespace ObjectPrinter.Specs
                 SomeEnumMember = SomeEnum.Enum22;
             }
 
-			public ObjectPrintable(string customToString) : this()
-			{
-				_customToString = customToString;
-			}
+            public ObjectPrintable(string customToString) : this()
+            {
+                _customToString = customToString;
+            }
 
-			public override int GetHashCode()
-			{
-				return Id;
-			}
+            public override int GetHashCode()
+            {
+                return Id;
+            }
 
-			public override string ToString()
-			{
-				return string.IsNullOrEmpty(_customToString)
-						? base.ToString()
-						: _customToString;
-			}
-		}
+            public override string ToString()
+            {
+                return string.IsNullOrEmpty(_customToString)
+                        ? base.ToString()
+                        : _customToString;
+            }
+        }
 
-		internal class ObjectWithPublicFields
-		{
+        internal class ObjectWithPublicFields
+        {
 #pragma warning disable 0414
-			private string _testString = "Ignored by printer";	// Unused varible needed for tests
+            private string _testString = "Ignored by printer";  // Unused variable needed for tests
 #pragma warning restore 0414
 
-			public int TestInteger;
-			public string TestString;
+            public int TestInteger;
+            public string TestString;
 
-			public int Id { get; set; }
+            public int Id { get; set; }
 
-			public override int GetHashCode()
-			{
-				return Id;
-			}
-		}
-	}
+            public override int GetHashCode()
+            {
+                return Id;
+            }
+        }
+    }
 }

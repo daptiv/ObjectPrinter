@@ -14,7 +14,7 @@ namespace ObjectPrinter.Specs
         }
 
         [Test]
-        public void SetContext_should_work_with_non_serializabl_context_item()
+        public void SetContext_should_work_with_non_serializable_context_item()
         {
             var ex = new Exception();
             ex.SetContext("context", new {name="non-serializable"});

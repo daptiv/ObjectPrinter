@@ -11,7 +11,7 @@ namespace ObjectPrinter.Specs
     public class IndentAwareTextWriterTests
     {
         [Test]
-        public void should_alter_tab_depth_with_indent_and_outdent()
+        public void Should_alter_tab_depth_with_indent_and_outdent()
         {
             var sb = new StringBuilder();
             var writer = new IndentableTextWriter(new StringWriter(sb), "\t", "\n");

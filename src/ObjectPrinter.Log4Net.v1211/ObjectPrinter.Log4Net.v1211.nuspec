@@ -16,11 +16,11 @@ Also provides a log4net type inspector to prevent prevent dumping log4net object
         <tags>.net debug dump exception log</tags>
         <dependencies>
             <dependency id="log4net" version="2.0.0" />
-            <dependency id="ObjectPrinter" version="1.1.1" />
+            <dependency id="ObjectPrinter" version="$version$" />
         </dependencies>
     </metadata>
   <files>
-    <file src="bin\Release\ObjectPrinter.Log4Net.v1211.dll" target="lib\Net40" />
-    <file src="bin\Release\ObjectPrinter.Log4Net.v1211.xml" target="lib\Net40" />
+    <file src="bin\Release\ObjectPrinter.Log4Net.v1211.dll" target="lib\Net48" />
+    <file src="bin\Release\ObjectPrinter.Log4Net.v1211.xml" target="lib\Net48" />
   </files>
 </package>

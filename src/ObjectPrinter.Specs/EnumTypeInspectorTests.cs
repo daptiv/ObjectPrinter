@@ -2,7 +2,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace ObjectPrinter.Specs.EnumTypeInspectorSpecs
+namespace ObjectPrinter.Specs
 {
     [TestFixture]
     public class EnumTypeInspectorTests
@@ -22,7 +22,6 @@ namespace ObjectPrinter.Specs.EnumTypeInspectorSpecs
         {
             var flagged = ImFlagged.Val1 | ImFlagged.Val2;
             var output = flagged.DumpToString();
-            //Console.Out.WriteLine(output);
             output.Should().Contain("Val1");
             output.Should().Contain("Val2");
             output.Should().NotContain("Val3");
@@ -35,7 +34,6 @@ namespace ObjectPrinter.Specs.EnumTypeInspectorSpecs
         {
             var notFlagged = ImNotFlagged.Val2;
             var output = notFlagged.DumpToString();
-            //Console.Out.WriteLine(output);
             output.Should().Be("ImNotFlagged.Val2");
         }
     }
