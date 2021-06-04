@@ -58,9 +58,9 @@
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ObjectPrinter.Log4Net.v1211\ObjectPrinter.Log4Net.v1211.csproj">
-      <Project>{c69c838e-23b4-4eec-a2ff-a2a56b773519}</Project>
-      <Name>ObjectPrinter.Log4Net.v1211</Name>
+    <ProjectReference Include="..\ObjectPrinter.Log4Net.v1210\ObjectPrinter.Log4Net.v1210.csproj">
+      <Project>{a013daef-5fd0-4241-81ae-724278eb5560}</Project>
+      <Name>ObjectPrinter.Log4Net.v1210</Name>
     </ProjectReference>
     <ProjectReference Include="..\ObjectPrinter\ObjectPrinter.csproj">
       <Project>{17FAE841-474C-4B3B-89A1-13BC44364171}</Project>
@@ -96,7 +96,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.8'">
       <ItemGroup>
         <Reference Include="log4net">
-          <HintPath>..\packages\log4net\lib\net45-full\log4net.dll</HintPath>
+          <HintPath>..\packages\log4net\lib\2.0\log4net.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
